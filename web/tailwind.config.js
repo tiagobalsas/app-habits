@@ -11,7 +11,7 @@ export default {
       },
 
       gridTemplateRows: {
-        7: 'repeat(7, minmax(0, 1rf))'
+        7: 'repeat(7, minmax(0, 1fr))'
       }
     },
   },
