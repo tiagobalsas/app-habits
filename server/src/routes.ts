@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { startOfDay } from 'date-fns';
+import { startOfDay, getDay } from 'date-fns';
 import { prisma } from '@/lib/prisma';
 
 export async function appRoutes(app: FastifyInstance) {
@@ -26,5 +26,30 @@ export async function appRoutes(app: FastifyInstance) {
         },
       },
     });
+  });
+
+  app.get('/day', async (request) => {
+    const getDayParams = z.object({
+      date: z.coerce.date(),
+    });
+
+    const { date } = getDayParams.parse(request.query);
+    const weekDay = getDay(date);
+
+    const possibleHabits = await prisma.habit.findMany({
+      where: {
+        created_at: {
+          lte: date,
+        },
+        weekDays: {
+          some: {
+            week_day: weekDay,
+          },
+        },
+      },
+    });
+    return {
+      possibleHabits,
+    };
   });
 }
