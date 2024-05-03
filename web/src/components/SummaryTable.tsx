@@ -1,5 +1,9 @@
 import { HabitDay } from '@/components/HabitDay';
+// import { GenerateDatesFromYearBeginning } from '@/utils/generate-dates-from-year-beginning';
+
 const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+
+// const summaryDates = GenerateDatesFromYearBeginning();
 
 export function SummaryTable() {
   return (
