@@ -21,6 +21,7 @@ export function Home() {
           </Text>
         ))}
       </View>
+
       <HabitDay />
     </View>
   );
