@@ -1,3 +1,5 @@
+import '@/lib/dateLocal';
+
 import { StatusBar } from 'react-native';
 import {
   useFonts,
