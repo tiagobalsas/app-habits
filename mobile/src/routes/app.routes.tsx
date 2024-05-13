@@ -7,7 +7,8 @@ import { NewHabit } from '@/screens/NewHabit';
 import { Habit } from '@/screens/Habit';
 
 export function appRoutes(){
-  <Navigator>
+  return(
+    <Navigator>
     <Screen 
       name='home'
       component={Home}
@@ -23,4 +24,5 @@ export function appRoutes(){
       component={Habit}
     />
   </Navigator>
+  )
 }
