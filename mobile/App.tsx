@@ -11,7 +11,7 @@ import {
 } from '@expo-google-fonts/inter';
 
 import { Loading } from '@/components/Loading';
-import { Home } from '@/screens/Home';
+import { Routes } from '@/routes';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <>
-      <Home />
+      <Routes />
       <StatusBar
         barStyle='light-content'
         backgroundColor='transparent'
