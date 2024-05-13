@@ -6,23 +6,14 @@ import { Home } from '@/screens/Home';
 import { NewHabit } from '@/screens/NewHabit';
 import { Habit } from '@/screens/Habit';
 
-export function AppRoutes(){
-  return(
-    <Navigator>
-    <Screen 
-      name='home'
-      component={Home}
-    />
+export function AppRoutes() {
+  return (
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name='home' component={Home} />
 
-    <Screen 
-      name='new'
-      component={NewHabit}
-    />
-    
-    <Screen 
-      name='habit'
-      component={Habit}
-    />
-  </Navigator>
-  )
+      <Screen name='new' component={NewHabit} />
+
+      <Screen name='habit' component={Habit} />
+    </Navigator>
+  );
 }
