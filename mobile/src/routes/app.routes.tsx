@@ -6,7 +6,7 @@ import { Home } from '@/screens/Home';
 import { NewHabit } from '@/screens/NewHabit';
 import { Habit } from '@/screens/Habit';
 
-export function appRoutes(){
+export function AppRoutes(){
   return(
     <Navigator>
     <Screen 
