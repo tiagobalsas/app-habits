@@ -8,7 +8,7 @@ const summaryDates = GenerateDatesFromYearBeginning();
 const minimumSummaryDateSuze = 18 * 7;
 const amountOfDaysToFill = minimumSummaryDateSuze - summaryDates.length;
 
-type SummaryProps = {
+type SummaryTypes = {
   id: string;
   date: string;
   amount: number;
