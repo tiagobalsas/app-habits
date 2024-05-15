@@ -119,27 +119,27 @@ export async function appRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get('/summary', async (request) => {
+  app.get('/summary', async () => {
     const summary = await prisma.$queryRaw`
       SELECT 
-        D.id,
+        D.id, 
         D.date,
         (
-          SELECT
-            CAST(COUNT(*) AS FLOAT)
+          SELECT 
+            cast(count(*) as float)
           FROM day_habits DH
           WHERE DH.day_id = D.id
-        ) AS completed,
+        ) as completed,
         (
           SELECT
-            CAST(COUNT(*) AS FLOAT)
-          FROM habit_week_days HWD
+            cast(count(*) as float)
+          FROM habit_week_days HDW
           JOIN habits H
-            ON H.id = HWD.habit_id
+            ON H.id = HDW.habit_id
           WHERE
-            HWD.week_day = CAST(EXTRACT(DOW FROM D.date) AS INT)
+            HDW.week_day = EXTRACT(ISODOW FROM to_timestamp(EXTRACT(epoch FROM D.date)/1000))
             AND H.created_at <= D.date
-      ) AS amount
+        ) as amount
       FROM days D
     `;
 
