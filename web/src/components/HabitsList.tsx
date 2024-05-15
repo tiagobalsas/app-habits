@@ -37,6 +37,7 @@ export function HabitsList({ date }: HabitsListProps) {
         return (
           <Checkbox.Root
             key={habit.id}
+            checked={habitsInfo.completedHabits.includes(habit.id)}
             className='flex items-center gap-3 group'
           >
             <div className='h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500'>
