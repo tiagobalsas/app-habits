@@ -1,4 +1,4 @@
-import { addDays, endOfDay, isBefore, startOfDay, format } from 'date-fns';
+import { addDays, endOfDay, isBefore, startOfDay } from 'date-fns';
 
 export function GenerateDatesFromYearBeginning() {
   const now = new Date();
@@ -11,7 +11,7 @@ export function GenerateDatesFromYearBeginning() {
     isBefore(compareDate, toDay);
     compareDate = addDays(compareDate, 1)
   ) {
-    dates.push(format(compareDate, 'yyyy-MM-dd'));
+    dates.push(new Date(compareDate));
   }
 
   return dates;
