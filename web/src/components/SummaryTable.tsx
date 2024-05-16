@@ -44,19 +44,20 @@ export function SummaryTable() {
         })}
       </div>
       <div className='grid grid-rows-7 grid-flow-col gap-3'>
-        {summaryDates.map((date) => {
-          const dayInSummary = summary.find((day) => {
-            return isSameDay(date, day.date);
-          });
-          return (
-            <HabitDay
-              key={date.toISOString()}
-              date={new Date(date)}
-              amount={dayInSummary?.amount}
-              completed={dayInSummary?.completed}
-            />
-          );
-        })}
+        {summary.length > 0 &&
+          summaryDates.map((date) => {
+            const dayInSummary = summary.find((day) => {
+              return isSameDay(date, day.date);
+            });
+            return (
+              <HabitDay
+                key={date.toISOString()}
+                date={new Date(date)}
+                amount={dayInSummary?.amount}
+                defaultCompleted={dayInSummary?.completed}
+              />
+            );
+          })}
       </div>
 
       {amountOfDaysToFill > 0 &&
