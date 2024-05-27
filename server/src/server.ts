@@ -5,7 +5,10 @@ import { appRoutes } from '@/routes';
 
 const app = Fastify();
 
-app.register(cors);
+app.register(cors, {
+  origin: process.env.CORS_ORIGIN || '*', // Usando a variável de ambiente para CORS
+});
+
 app.register(appRoutes);
 
 app
